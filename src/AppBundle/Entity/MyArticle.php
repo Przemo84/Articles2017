@@ -6,7 +6,7 @@
  * Time: 00:24
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

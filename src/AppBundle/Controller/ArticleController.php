@@ -29,6 +29,7 @@ class ArticleController
         $contentFaker = $faker->realText($maxNbChars = 300);
 
         $article1 = new \AppBundle\Controller\MyArticle();
+
         $article1->setId($idFaker);
         $article1->setTitle($titleFaker);
         $article1->setContent($contentFaker);
