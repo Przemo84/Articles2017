@@ -119,9 +119,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
-        // app_lucky_apinumber
-        if ($pathinfo === '/lucky/number') {
-            return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::apiNumberAction',  '_route' => 'app_lucky_apinumber',);
+        // app_persist_index
+        if ($pathinfo === '/persist/db') {
+            return array (  '_controller' => 'AppBundle\\Controller\\PersistController::indexAction',  '_route' => 'app_persist_index',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

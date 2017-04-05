@@ -9,15 +9,17 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Bundle\FrameworkBundle\Tests\Fixtures\Validation\Article;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Faker;
 use AppBundle\Entity\MyArticle;
+use Symfony\Component\HttpFoundation\Response;
 
-class ArticleController
+class PersistController extends Controller
 {
     /**
-     * @Route("/przemo/article")
+     * @Route("/persist/db")
      */
 
     public function indexAction()
@@ -40,11 +42,11 @@ class ArticleController
             'content'=>$article1->getContent(),
             );
 
-        $jsonResp = new  JsonResponse($articleArray);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($article1);
+        $em->flush();
 
-        $jsonResp->setEncodingOptions(JSON_UNESCAPED_UNICODE) ;
-
-        return  $jsonResp;
+        return  new Response();
 
     }
 }
